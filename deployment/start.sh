@@ -1,0 +1,1 @@
+java -jar -Dserver target/nucc-0.0.1-SNAPSHOT.jar
