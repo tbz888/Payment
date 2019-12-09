@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn">
+    <Appenders>
+        <RollingFile name="BaseFile" fileName="${sys:root.dir}/log/base.log"
+                     filePattern="${sys:root.dir}/log/base-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} %level [%thread] %class{1}@%M@%L - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="15"/>
+        </RollingFile>
+        <RollingFile name="BusinessFile" fileName="${sys:root.dir}/log/business.log"
+                     filePattern="${sys:root.dir}/log/business-%d{MM-dd-yyyy}-%i.log">
+            <PatternLayout>
+                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} %level [%thread] %class{1}@%M@%L - %msg%n</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="20MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="15"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="warn">
+            <AppenderRef ref="BaseFile"/>
+        </Root>
+        <Logger name="com.tbz.payment.business" level="warn" additivity="false">
+            <AppenderRef ref="BusinessFile"/>
+        </Logger>
+    </Loggers>
+</Configuration>
