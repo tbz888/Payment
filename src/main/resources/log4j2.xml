@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="warn">
+    <Properties>
+        <Property name="logPattern">%d{yyyy-MM-dd HH:mm:ss:SSS} %level [%thread] %class{1}@%M@%L: %msg%n</Property>
+        <Property name="logRootDir">${sys:root.dir}</Property>
+    </Properties>
     <Appenders>
-        <RollingFile name="BaseFile" fileName="${sys:root.dir}/log/base.log"
-                     filePattern="${sys:root.dir}/log/base-%d{MM-dd-yyyy}-%i.log">
+        <RollingFile name="BaseFile" fileName="${logRootDir}/log/base.log"
+                     filePattern="${logRootDir}/log/base-%d{MM-dd-yyyy}-%i.log">
             <PatternLayout>
-                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} %level [%thread] %class{1}@%M@%L - %msg%n</Pattern>
+                <Pattern>${logPattern}</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>
@@ -12,10 +16,10 @@
             </Policies>
             <DefaultRolloverStrategy max="15"/>
         </RollingFile>
-        <RollingFile name="BusinessFile" fileName="${sys:root.dir}/log/business.log"
-                     filePattern="${sys:root.dir}/log/business-%d{MM-dd-yyyy}-%i.log">
+        <RollingFile name="BusinessFile" fileName="${logRootDir}/log/business.log"
+                     filePattern="${logRootDir}/log/business-%d{MM-dd-yyyy}-%i.log">
             <PatternLayout>
-                <Pattern>%d{yyyy-MM-dd HH:mm:ss:SSS} %level [%thread] %class{1}@%M@%L - %msg%n</Pattern>
+                <Pattern>${logPattern}</Pattern>
             </PatternLayout>
             <Policies>
                 <TimeBasedTriggeringPolicy interval="1"/>

@@ -6,7 +6,6 @@ root:
   dir: /Users/tbz/Payment
   port: 9527
 
-
 # 网络配置
 server:
   port: ${root.port}
