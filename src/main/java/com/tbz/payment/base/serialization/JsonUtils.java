@@ -1,4 +1,4 @@
-package com.tbz.payment.base.json;
+package com.tbz.payment.base.serialization;
 
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.JsonNode;

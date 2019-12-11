@@ -1,34 +1,17 @@
-package com.tbz.payment.base.json;
+package com.tbz.payment.base.serialization;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.assertj.core.util.Lists;
+import com.tbz.payment.TestEnvironment;
 import org.junit.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.List;
 
 
-public class JsonUtilsTest {
-    @Before
-    public void testBefore() {
-        System.getProperties().put("root.dir", "/Users/tbz/Payment");
-    }
-
-    @Test
-    public void testToString() throws IOException {
-        Man man = new Man();
-        man.id = 1;
-        man.tasks = Lists.newArrayList("type", "program");
-        String str = JsonUtils.toString(man);
-        Assert.assertTrue(str.contains("type"));
-        Assert.assertTrue(str.contains("program"));
-        Assert.assertTrue(str.contains("tasks"));
-        Assert.assertTrue(str.contains("id"));
-    }
+public class JsonUtilsTest extends TestEnvironment {
 
     @Test
     public void testToObject() throws IOException {
