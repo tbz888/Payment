@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class DefaultHttpClientTest extends TestEnvironment {
+
     @Test
     public void testGet() {
         AbstractHttpClient rest = HttpClientFactory.getInstance();
@@ -19,5 +20,10 @@ public class DefaultHttpClientTest extends TestEnvironment {
         ResponseEntity<String> response = rest.get(url, null, queryString, String.class);
         Assert.assertNotNull(response);
         Assert.assertTrue(response.getBody().contains("<em>TBZ</em>"));
+    }
+
+    @Test
+    public void testPost() {
+        // TODO
     }
 }

@@ -8,12 +8,16 @@
         <RollingFile name="BaseFile" fileName="${logRootDir}/log/base.log"
                      filePattern="${logRootDir}/log/base-%d{MM-dd-yyyy}-%i.log">
             <PatternLayout>
+                <!--日志打印格式-->
                 <Pattern>${logPattern}</Pattern>
             </PatternLayout>
             <Policies>
+                <!--每隔1天生成一个文件-->
                 <TimeBasedTriggeringPolicy interval="1"/>
+                <!--每满20MB生成一个文件-->
                 <SizeBasedTriggeringPolicy size="20MB"/>
             </Policies>
+            <!--最多保留15个文件-->
             <DefaultRolloverStrategy max="15"/>
         </RollingFile>
         <RollingFile name="BusinessFile" fileName="${logRootDir}/log/business.log"

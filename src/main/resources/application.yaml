@@ -13,3 +13,14 @@ server:
 # 日志配置
 logging:
   config: classpath:log4j2.xml
+
+
+spring:
+  # 数据库链接
+  datasource:
+    master:
+      driverClassName: oracle.jdbc.driver.OracleDriver
+      url: jdbc:oracle:thin:@localhost:1521/XE
+      jdbcUrl: jdbc:oracle:thin:@localhost:1521/XE
+      username: tbz
+      password: 1

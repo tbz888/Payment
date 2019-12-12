@@ -31,6 +31,13 @@ public class JsonUtilsTest extends TestEnvironment {
         Assert.assertEquals(j.get("tasks").get(1).asText(), "program");
     }
 
+    @Test
+    public void testToString() throws IOException {
+        String json = "{\"id\":1,\"tasks\":[\"type\",\"program\"]}";
+        JsonNode k = JsonUtils.toJsonNode(json);
+        Assert.assertTrue(JsonUtils.toString(k).contains("program"));
+    }
+
     @JsonIgnoreProperties(ignoreUnknown = true)
     static class Man {
         @JsonProperty

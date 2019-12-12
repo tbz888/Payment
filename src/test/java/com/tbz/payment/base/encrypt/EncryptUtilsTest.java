@@ -4,8 +4,11 @@ import com.tbz.payment.TestEnvironment;
 import org.junit.Assert;
 import org.junit.Test;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
+
 
 public class EncryptUtilsTest extends TestEnvironment {
+
     @Test
     public void testBase() throws Exception {
         String origin = "qwertyuiop";
@@ -48,5 +51,17 @@ public class EncryptUtilsTest extends TestEnvironment {
         String en = EncryptUtils.encryptAES(origin, key);
         String de = EncryptUtils.decryptAES(en, key);
         Assert.assertEquals(origin, de);
+    }
+
+    @Test
+    public void testKeyNull() {
+        assertThrows(Exception.class, () -> EncryptUtils.encryptAES("213", null));
+        assertThrows(Exception.class, () -> EncryptUtils.decryptAES("213", null));
+    }
+
+    @Test
+    public void testContentNull() {
+        assertThrows(Exception.class, () -> EncryptUtils.encryptAES(null, "23"));
+        assertThrows(Exception.class, () -> EncryptUtils.decryptAES(null, "1"));
     }
 }
